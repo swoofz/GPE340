@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eccd5ba732b60f440a7294b3225947b2
+guid: 0673b61d398fe634dabe7d399cd68005
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -143,7 +143,7 @@ ModelImporter:
     400134: swat:Spine
     400136: swat:Spine1
     400138: swat:Spine2
-    7400000: Right Strafe Walking
+    7400000: Idle
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -174,10 +174,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Right Strafe Walking
+      name: Idle
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 31
+      lastFrame: 59
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 325cf6980c3d4784c8bf993e764c5197
+guid: ba145eea9737e5d41b6195c3987ac3bb
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -186,8 +186,8 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
@@ -248,7 +248,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: swat:Hips
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

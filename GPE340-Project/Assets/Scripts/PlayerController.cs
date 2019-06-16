@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Character))]
 public class PlayerController : MonoBehaviour {
     
     [SerializeField, Tooltip("The max speed of the player")]
@@ -23,7 +22,9 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
         Move();
+        Rotate();
     }
 
     private void Move() {
@@ -31,9 +32,18 @@ public class PlayerController : MonoBehaviour {
         Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         input = Vector3.ClampMagnitude(input, 1f);
         input *= speed;
+        input = transform.InverseTransformDirection(input);
         animator.SetFloat("Horizontal", input.x);
         animator.SetFloat("Vertical", input.z);
+    }
 
-        character.Move(input.x, input.z);
+    private void Rotate() {
+        Plane plane = new Plane(Vector3.up, transform.position);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        float distance;
+        if(plane.Raycast (ray, out distance)) {
+            Debug.Log(ray.GetPoint(distance));
+            transform.rotation = Quaternion.LookRotation(ray.GetPoint(distance) - transform.position);
+        }
     }
 }
