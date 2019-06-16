@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
         Move();
         Rotate();
     }
@@ -42,7 +41,6 @@ public class PlayerController : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         float distance;
         if(plane.Raycast (ray, out distance)) {
-            Debug.Log(ray.GetPoint(distance));
             transform.rotation = Quaternion.LookRotation(ray.GetPoint(distance) - transform.position);
         }
     }
