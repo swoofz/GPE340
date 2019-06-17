@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0673b61d398fe634dabe7d399cd68005
+guid: bf4cc1385b74771498fa8a0aa06aefb4
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -177,7 +177,7 @@ ModelImporter:
       name: Idle
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 59
+      lastFrame: 63
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

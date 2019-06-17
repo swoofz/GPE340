@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Character))]
 public class PlayerController : MonoBehaviour {
-    
-    [SerializeField, Tooltip("The max speed of the player")]
-    private float speed = 4f;
 
-    private Animator animator;
-    private Character character;
+    private Character character;    // Get our character methods
 
     void Awake() {
-        animator = GetComponent<Animator>();
-        character = GetComponent<Character>();
+        character = GetComponent<Character>();      // Store our character component into a variable
     }
 
     // Start is called before the first frame update
@@ -22,26 +18,15 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        Move();
-        Rotate();
-    }
+        character.Move();       // Move our player
+        character.Rotate();     // Rotate our player
 
-    private void Move() {
-        if (animator == null) return;
-        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        input = Vector3.ClampMagnitude(input, 1f);
-        input *= speed;
-        input = transform.InverseTransformDirection(input);
-        animator.SetFloat("Horizontal", input.x);
-        animator.SetFloat("Vertical", input.z);
-    }
-
-    private void Rotate() {
-        Plane plane = new Plane(Vector3.up, transform.position);
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        float distance;
-        if(plane.Raycast (ray, out distance)) {
-            transform.rotation = Quaternion.LookRotation(ray.GetPoint(distance) - transform.position);
+        // Sprint by pressing Left Shift and if our player has stamina to sprint
+        if(Input.GetKey(KeyCode.LeftShift) && character.IsSprinting()) {
+            character.Sprint();
+        } else {    // Otherwise
+            // Restore our player stamina
+            character.RestoreStamina();
         }
     }
 }

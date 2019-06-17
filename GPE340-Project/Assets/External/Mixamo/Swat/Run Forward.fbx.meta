@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9af217fbba863a84ca1c7b27cc76b8ec
+guid: 1c9dd479b3157d04d8e1f84d9616c013
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -143,7 +143,7 @@ ModelImporter:
     400134: swat:Spine
     400136: swat:Spine1
     400138: swat:Spine2
-    7400000: Left Strafe Walking
+    7400000: Run Forward
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -174,10 +174,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Left Strafe Walking
+      name: Run Forward
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 31
+      lastFrame: 15
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
-    public Transform target;
-    public float maxViewDistance = 30f;
+    public Transform target;                // Target we want our camera to follow
+    public float maxViewDistance = 30f;     // Max Distance want our camera away from target
 
     private void LateUpdate() {
+        // Create a new Vector3 and only change our x and z axis
         Vector3 newTargetLocation = new Vector3(target.localPosition.x, 10f, target.position.z - 10f);
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, newTargetLocation, maxViewDistance);
     }
