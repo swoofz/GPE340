@@ -10,11 +10,14 @@ public class Character : MonoBehaviour {
     private Animator animator;      // Get our animator
     private CharacterData charData; // Get this Character data to use
 
+    public Health Health { get; private set; }
+
     void Awake() {
         // Set up variable to store components before start
         tf = GetComponent<Transform>();
         animator = GetComponent<Animator>(); 
         charData = GetComponent<CharacterData>();
+        Health = GetComponent<Health>();
     }
 
     // Function: Move

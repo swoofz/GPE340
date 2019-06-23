@@ -8,4 +8,5 @@ public class CharacterData : MonoBehaviour {
 
     [HideInInspector] public float speed = 1f;          // Animator speed max value to get to... Change animations
     [HideInInspector] public bool moving = false;       // Whether or not our character is moving
+
 }

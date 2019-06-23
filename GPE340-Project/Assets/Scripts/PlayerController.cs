@@ -7,13 +7,16 @@ public class PlayerController : MonoBehaviour {
 
     private Character character;    // Get our character methods
 
+    private float health = 100f;
+    public float Health { get { return health; } private set { health = value; } }
+
     void Awake() {
         character = GetComponent<Character>();      // Store our character component into a variable
     }
 
     // Start is called before the first frame update
     void Start() {
-
+        
     }
 
     // Update is called once per frame

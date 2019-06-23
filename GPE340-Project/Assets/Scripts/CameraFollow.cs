@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
-    public Transform target;                // Target we want our camera to follow
     public float maxViewDistance = 30f;     // Max Distance want our camera away from target
+
+    [SerializeField]
+    private Transform target = null;               // Target we want our camera to follow
+
 
     private void LateUpdate() {
         // Create a new Vector3 and only change our x and z axis
