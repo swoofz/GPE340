@@ -74,7 +74,7 @@ public class Player : WeaponAgent {
             // Sprinting
             if (!resting && moving) {
                 stamina -= 10 * Time.deltaTime;
-                return 2;
+                return 4;
             }
         }
 
