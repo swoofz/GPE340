@@ -33,10 +33,17 @@ public class ProjectileWeapon : Weapon {
     }
 
     void Shoot() {
+        GameObject storage = GameObject.Find("Bullets");
+        if(!storage) {
+            storage = new GameObject("Bullets");
+        }
+
         Projectile projectile = Instantiate(bullet, barrel.position, barrel.rotation * Quaternion.Euler(Random.onUnitSphere * spread)) as Projectile;
         projectile.damage = damage;
         projectile.rigidBody.AddRelativeForce(Vector3.forward * muzzleVelocity, ForceMode.VelocityChange);
         projectile.gameObject.layer = gameObject.layer;
+        projectile.transform.SetParent(storage.transform);
+        shot += 1;
     }
 
     public override void PullTrigger() {

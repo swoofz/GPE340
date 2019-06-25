@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d1a7078ffc7754faadc68ea59ef015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deafultWeapon: {fileID: 7387579993231529069, guid: a171d9a796b9c2f47b4d3f2350821cf8,
+  startWeapon: {fileID: 7387579993231529069, guid: a171d9a796b9c2f47b4d3f2350821cf8,
     type: 3}
   attachmentPoint: {fileID: 4831618711732325617}
   speed: 1.5

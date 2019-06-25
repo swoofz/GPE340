@@ -6,10 +6,10 @@ public class AlignRotation : MonoBehaviour {
 
     private Transform tf;
 
-    [SerializeField, Tooltip("The Transform to mathc rotation with")]
-    private Transform target;
-    [SerializeField, Tooltip("Tje speed to mathc the target's rotation")]
-    private float speed = 5f;
+    //[SerializeField, Tooltip("The Transform to mathc rotation with")]
+    //private Transform target = null;
+    //[SerializeField, Tooltip("Tje speed to mathc the target's rotation")]
+    //private float speed = 5f;
 
     private void Awake() {
         tf = GetComponent<Transform>();

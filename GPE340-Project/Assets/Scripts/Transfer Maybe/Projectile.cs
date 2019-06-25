@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour {
 
     [HideInInspector] public float damage;
 
-    private float lifespan = 5f;
+    private float lifespan = 1.2f;
 
     public Rigidbody rigidBody { get; private set; }
 
@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour {
     private void OnCollisionEnter(Collision collision) {
         Health player = collision.gameObject.GetComponent<Health>();
         if(player != null) {
-            // Do damaage
+            player.Damage(damage);
         }
 
         Destroy(gameObject, lifespan);

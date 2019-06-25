@@ -4,7 +4,8 @@ using UnityEngine;
 
 abstract public class Weapon : MonoBehaviour {
 
-    [HideInInspector] public bool triggerPulled = false;
+    public bool triggerPulled { get; set; }
+    public WeaonAnimationType AnimationType { get { return animationType; } }
 
     public enum WeaonAnimationType {
         None = 0,

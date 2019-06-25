@@ -4,12 +4,12 @@ using UnityEngine;
 
 abstract public class WeaponAgent : MonoBehaviour {
 
-    public Weapon deafultWeapon;
+    public Weapon startWeapon;
     public Transform attachmentPoint;
 
-    private Weapon equippedWeapon;
-
     public Animator Animator { get; private set; }
+    public Weapon equippedWeapon { get; private set; }
+
 
     protected virtual void OnAnimatorIK() {
         if (!equippedWeapon) return;
@@ -41,6 +41,7 @@ abstract public class WeaponAgent : MonoBehaviour {
         equippedWeapon.transform.localPosition = weapon.transform.localPosition;
         equippedWeapon.transform.localRotation = weapon.transform.localRotation;
         equippedWeapon.gameObject.layer = gameObject.layer;
+        Animator.SetInteger("Weapon Animation Type", equippedWeapon.AnimationType.GetHashCode());
     }
 
     public void Unequip() {

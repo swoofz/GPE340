@@ -5,14 +5,18 @@ using UnityEngine;
 public class Player : WeaponAgent {
 
     public Health Health { get; private set; }
+    public float StaminaPercentage { get { return stamina / maxStamina; } }
 
     [SerializeField, Tooltip("The max speed of the player")]
     private float speed = 4f;
+    [SerializeField, Tooltip("See the player current Health. NOTE: NOT A CHANGABLE VALUE")]
+    private float currentHealth;
 
     private Transform tf;
 
     private float currentSpeed;
-    public float stamina = 100f;
+    private float maxStamina = 100f;
+    private float stamina;
     private bool walking = true;
     private bool resting = false;
     private bool moving = false;
@@ -21,6 +25,7 @@ public class Player : WeaponAgent {
         tf = GetComponent<Transform>();
         SetAwakeVaribles();
         Health = GetComponent<Health>();
+        stamina = maxStamina;
     }
 
     // Start is called before the first frame update
@@ -30,9 +35,14 @@ public class Player : WeaponAgent {
 
     // Update is called once per frame
     void Update() {
+        currentHealth = Health.health;
         Move();
         Rotate();
         NeedToRest();
+
+        if (!equippedWeapon) {
+            EquipWeapon(startWeapon);
+        }
 
         if (Input.GetKey(KeyCode.LeftShift)) {
             currentSpeed = speed * 2f;
@@ -40,10 +50,6 @@ public class Player : WeaponAgent {
         } else {
             currentSpeed = speed;
             walking = true;
-        }
-
-        if(Input.GetKeyDown(KeyCode.Alpha1)) {
-            EquipWeapon(deafultWeapon);
         }
     }
 
@@ -80,8 +86,8 @@ public class Player : WeaponAgent {
 
         // Walking
         stamina += 10 * Time.deltaTime;
-        if (stamina >= 100) {
-            stamina = 100f;
+        if (stamina >= maxStamina) {
+            stamina = maxStamina;
         }
         return 1;   
     }

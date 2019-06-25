@@ -283,7 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerPulled: 0
   animationType: 1
-  damage: 10
+  damage: 12
   rightHandIKTarget: {fileID: 8071727366624730252}
   LeftHandIKTarget: {fileID: 3986289755659318185}
   bullet: {fileID: 1975319701680542518, guid: 3dd11425a66b854418058848cfd06948, type: 3}

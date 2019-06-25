@@ -5,55 +5,36 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
 
-    public float CurrentHealth { get { return health; } private set { health = value; } }
     public float HealthPercentage { get { return health / maxHealth; } }
+    public float health { get; private set; }
 
     [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private float health = 100f;
 
-    /*
     [SerializeField, Tooltip("Raised every time the object is healed.")]
-    private UnityEvent onHeal;
+    private UnityEvent onHeal = null;
     [SerializeField, Tooltip("Raised every time the object is healed.")]
-    private UnityEvent onDamage;
+    private UnityEvent onDamage = null;
     [SerializeField, Tooltip("Raised every time the object is healed.")]
-    private UnityEvent onDie;
-    */
+    private UnityEvent onDie = null;
 
-
-    // Start is called before the first frame update
-    void Start() {
-
+    private void Awake() {
+        health = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update() {
-
-    }
-
-    
     public void Damage(float damage) {
         damage = Mathf.Max(damage, 0f);
         health = Mathf.Clamp(health - damage, 0f, maxHealth);
-        //onDamage.Invoke();
+        onDamage.Invoke();
 
         if (health == 0f) {
             SendMessage("OnDie", SendMessageOptions.DontRequireReceiver);
-            //onDie.Invoke();
+            onDie.Invoke();
         }
     }
 
     public void Heal(float heal) {
         heal = Mathf.Max(heal, 0f);
         health = Mathf.Clamp(health + heal, 0f, maxHealth);
-        //onHeal.Invoke();
-    }
-
-    void ChangeState(string msg) {
-        // UI stuff?
-        // TODO:: Write the change state method
-        // taking damage / destoryed
-
-        SendMessage(msg, SendMessageOptions.DontRequireReceiver);
+        onHeal.Invoke();
     }
 }
