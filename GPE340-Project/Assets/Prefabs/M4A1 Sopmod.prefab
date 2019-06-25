@@ -242,7 +242,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3437552553575688415}
   - component: {fileID: 7387579993231529069}
-  - component: {fileID: 1374075718779619339}
   m_Layer: 0
   m_Name: M4A1 Sopmod
   m_TagString: Untagged
@@ -258,8 +257,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3437552553575462143}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.0453, y: 0.0115, z: -0.0074}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -0.056, y: 0.145, z: 0.025}
+  m_LocalScale: {x: 0.50000006, y: 0.49999997, z: 0.49999997}
   m_Children:
   - {fileID: 3437552553575688413}
   - {fileID: 3437552553575688411}
@@ -284,28 +283,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerPulled: 0
   animationType: 1
-  damage: 5
+  damage: 10
   rightHandIKTarget: {fileID: 8071727366624730252}
   LeftHandIKTarget: {fileID: 3986289755659318185}
   bullet: {fileID: 1975319701680542518, guid: 3dd11425a66b854418058848cfd06948, type: 3}
   barrel: {fileID: 104829958069748190}
-  muzzleVelocity: 7
+  muzzleVelocity: 13
   shotsPerMinute: 750
   spread: 1.5
---- !u!114 &1374075718779619339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3437552553575462143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36684e09cb0ad034d80a5baf29987104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 4831618712072709926, guid: aa9f783cfd2fefc4ba9b693d4cfc5a47, type: 3}
-  speed: 5
 --- !u!1 &7297897241477197958
 GameObject:
   m_ObjectHideFlags: 0
