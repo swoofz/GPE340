@@ -12,16 +12,17 @@ public class Player : WeaponAgent {
     [SerializeField, Tooltip("See the player current Health. NOTE: NOT A CHANGABLE VALUE")]
     private float currentHealth;
 
-    private Transform tf;
+    private Transform tf;           // Our transform store variable
 
-    private float currentSpeed;
-    private float maxStamina = 100f;
-    private float stamina;
-    private bool walking = true;
-    private bool resting = false;
-    private bool moving = false;
+    private float currentSpeed;         // change in speed
+    private float maxStamina = 100f;    // max stamina to be able to sprint
+    private float stamina;              // stamina that is used for sprinting
+    private bool walking = true;        // are we walking?
+    private bool resting = false;       // are we sprinting?
+    private bool moving = false;        // are we moving?
 
     private void Awake() {
+        // Initailize Variables
         tf = GetComponent<Transform>();
         SetAwakeVaribles();
         Health = GetComponent<Health>();
@@ -35,15 +36,16 @@ public class Player : WeaponAgent {
 
     // Update is called once per frame
     void Update() {
-        currentHealth = Health.health;
+        currentHealth = Health.health;  // Update our show current health value
         Move();
         Rotate();
         NeedToRest();
 
-        if (!equippedWeapon) {
+        if (!equippedWeapon) {  // If no weapon is equipped then equip
             EquipWeapon(startWeapon);
         }
 
+        // Left shift to sprint
         if (Input.GetKey(KeyCode.LeftShift)) {
             currentSpeed = speed * 2f;
             walking = false;
@@ -54,14 +56,18 @@ public class Player : WeaponAgent {
     }
 
     void Move() {
+        // Set our movement in a new Vector3
         Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        input = Vector3.ClampMagnitude(input, 1f);
-        tf.position += input * currentSpeed * Time.deltaTime;
-        input = tf.InverseTransformDirection(input * Sprint());
+
+        input = Vector3.ClampMagnitude(input, 1f);                  // Even our vector, so cant go faster diagonal
+        tf.position += input * currentSpeed * Time.deltaTime;       // Control our speed
+        input = tf.InverseTransformDirection(input * Sprint());     // Update our position in world space
+
+        // Set our animations
         Animator.SetFloat("Horizontal", input.x);
         Animator.SetFloat("Vertical", input.z);
 
-        IsMoving(input.x, input.z);
+        IsMoving(input.x, input.z); // Define if we are moving
     }
 
     void Rotate() {
@@ -75,7 +81,9 @@ public class Player : WeaponAgent {
         }
     }
 
+    // Return the change animation value
     int Sprint() {
+        // Make sure we not walking and have stamina to run with
         if (!walking && stamina > 0) {
             // Sprinting
             if (!resting && moving) {
@@ -84,7 +92,7 @@ public class Player : WeaponAgent {
             }
         }
 
-        // Walking
+        // Walking & Resting  --- Restore stamina to full
         stamina += 10 * Time.deltaTime;
         if (stamina >= maxStamina) {
             stamina = maxStamina;
@@ -92,6 +100,7 @@ public class Player : WeaponAgent {
         return 1;   
     }
 
+    // Stamina cooldown if used all
     void NeedToRest() {
         if(stamina <= 0) {
             resting = true;
@@ -102,7 +111,9 @@ public class Player : WeaponAgent {
         }
     }
 
+    // Check if we are moving
     void IsMoving(float x, float z) {
+        // As long as x or z doesn't equal zero are character is moving
         if (x != 0 || z != 0) {
             moving = true;
         } else {

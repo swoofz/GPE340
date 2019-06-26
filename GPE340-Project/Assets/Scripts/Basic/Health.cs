@@ -7,6 +7,7 @@ public class Health : MonoBehaviour {
 
     public float HealthPercentage { get { return health / maxHealth; } }
     public float health { get; private set; }
+    public float MaxHealth { get { return maxHealth; } }
 
     [SerializeField] private float maxHealth = 100f;
 
@@ -18,21 +19,26 @@ public class Health : MonoBehaviour {
     private UnityEvent onDie = null;
 
     private void Awake() {
+        // Initailize Variables
         health = maxHealth;
     }
 
     public void Damage(float damage) {
+        // Make sure the damage passed in is position, then take away health and make sure it is between max and 0
         damage = Mathf.Max(damage, 0f);
         health = Mathf.Clamp(health - damage, 0f, maxHealth);
+
+        // Invoke any other things we need to do when damaged
         onDamage.Invoke();
 
-        if (health == 0f) {
+        if (health == 0f) { // if dead
             SendMessage("OnDie", SendMessageOptions.DontRequireReceiver);
             onDie.Invoke();
         }
     }
 
     public void Heal(float heal) {
+        // Make sure heal is position and add to the health between 0 and max
         heal = Mathf.Max(heal, 0f);
         health = Mathf.Clamp(health + heal, 0f, maxHealth);
         onHeal.Invoke();

@@ -4,27 +4,24 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-    [HideInInspector] public float damage;
+    public float damage { get; set; }  // bullet damage
 
-    private float lifespan = 1.2f;
+    private float lifespan = 1.2f;      // Time to delay the destory 
 
     public Rigidbody rigidBody { get; private set; }
 
     private void Awake() {
+        // Initialize Variables
         rigidBody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update() {
-        
-    }
-
     private void OnCollisionEnter(Collision collision) {
+        // Get health component on our collision target
         Health player = collision.gameObject.GetComponent<Health>();
-        if(player != null) {
-            player.Damage(damage);
+        if(player != null) {        // if have a health component 
+            player.Damage(damage);  // do damage
         }
 
-        Destroy(gameObject, lifespan);
+        Destroy(gameObject, lifespan);  // else destory after give time
     }
 }

@@ -7,6 +7,7 @@ abstract public class Weapon : MonoBehaviour {
     public bool triggerPulled { get; set; }
     public WeaonAnimationType AnimationType { get { return animationType; } }
 
+    // Controler Animation type by what type of weapon we have
     public enum WeaonAnimationType {
         None = 0,
         Rifle = 1,
@@ -15,7 +16,6 @@ abstract public class Weapon : MonoBehaviour {
 
     [SerializeField, Header("Weapon Settings")]
     private WeaonAnimationType animationType = WeaonAnimationType.None;
-    public float damage = 5f;
 
     [Header("IK Settings")]
     public Transform rightHandIKTarget;
@@ -25,8 +25,11 @@ abstract public class Weapon : MonoBehaviour {
     public Projectile bullet;
     public Transform barrel;
 
+    [Header("Weapon Stats")]
+    public float damage = 5f;
 
 
+    // Methods that need to be modified in Inheratid classes
     public abstract void PullTrigger();
     public abstract void ReleaseTrigger();
 }

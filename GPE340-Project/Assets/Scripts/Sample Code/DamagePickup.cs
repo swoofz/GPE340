@@ -7,6 +7,7 @@ public class DamagePickup : Pickup {
     private float damage = 10f;
 
     protected override void OnPickUp(Player player) {
+        // Damage Player
         player.Health.Damage(damage);
         base.OnPickUp(player);
     }
