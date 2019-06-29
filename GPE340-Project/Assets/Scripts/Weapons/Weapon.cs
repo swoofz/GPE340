@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,6 +24,11 @@ abstract public class Weapon : MonoBehaviour {
     [Header("Projectile Settings")]
     public Projectile bullet;
     public Transform barrel;
+
+    [Header("AI Stetings"), Range(0, 100)]
+    public float attackAngle = 5f;
+    [Range(0, 50)]
+    public float maxRange = 20f;
 
     [Header("Weapon Stats")]
     public float damage = 5f;

@@ -7,12 +7,16 @@ public class Player : WeaponAgent {
     public Health Health { get; private set; }
     public float StaminaPercentage { get { return stamina / maxStamina; } }
 
+    public Weapon startWeapon;      // Starting weapon that will be equipped on our player
+
     [SerializeField, Tooltip("The max speed of the player")]
     private float speed = 4f;
     [SerializeField, Tooltip("See the player current Health. NOTE: NOT A CHANGABLE VALUE")]
     private float currentHealth;
 
     private Transform tf;           // Our transform store variable
+
+    private RagdollController ragController;
 
     private float currentSpeed;         // change in speed
     private float maxStamina = 100f;    // max stamina to be able to sprint
@@ -21,12 +25,14 @@ public class Player : WeaponAgent {
     private bool resting = false;       // are we sprinting?
     private bool moving = false;        // are we moving?
 
-    private void Awake() {
+    protected override void Awake() {
         // Initailize Variables
+        base.Awake();
         tf = GetComponent<Transform>();
-        SetAwakeVaribles();
         Health = GetComponent<Health>();
+        ragController = GetComponent<RagdollController>();
         stamina = maxStamina;
+        EquipWeapon(startWeapon);
     }
 
     // Start is called before the first frame update
@@ -38,12 +44,9 @@ public class Player : WeaponAgent {
     void Update() {
         currentHealth = Health.health;  // Update our show current health value
         Move();
+        Shoot();
         Rotate();
         NeedToRest();
-
-        if (!equippedWeapon) {  // If no weapon is equipped then equip
-            EquipWeapon(startWeapon);
-        }
 
         // Left shift to sprint
         if (Input.GetKey(KeyCode.LeftShift)) {
@@ -119,5 +122,20 @@ public class Player : WeaponAgent {
         } else {
             moving = false;
         }
+    }
+
+    void Shoot() {
+        // Mouse button 0 is our shoot button
+        if (Input.GetMouseButton(0)) {
+            equippedWeapon.PullTrigger();
+        } else {
+            equippedWeapon.ReleaseTrigger();
+        }
+    }
+
+    void OnDie() {
+        Unequip();
+        if(ragController)
+            ragController.TurnOnElementsIncludingChildren();
     }
 }

@@ -8,6 +8,7 @@ public class Health : MonoBehaviour {
     public float HealthPercentage { get { return health / maxHealth; } }
     public float health { get; private set; }
     public float MaxHealth { get { return maxHealth; } }
+    public UnityEvent OnDie { get { return onDie; } }
 
     [SerializeField] private float maxHealth = 100f;
 

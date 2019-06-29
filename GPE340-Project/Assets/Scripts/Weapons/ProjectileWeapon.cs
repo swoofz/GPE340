@@ -7,6 +7,7 @@ public class ProjectileWeapon : Weapon {
     // More Weapon Stats
     public float muzzleVelocity = 5f;       // Forces the bullet fire at
     public float shotsPerMinute = 900f;     // Shots per minute
+    [Range(0, 100)]
     public float spread = 5f;               // bullet spread
 
     private float timeNextShotIsReady;      // time to be able to take a shot again
@@ -17,12 +18,7 @@ public class ProjectileWeapon : Weapon {
     }
 
     private void FixedUpdate() {
-        // Mouse button 0 is our shoot button
-        if (Input.GetMouseButton(0)) {
-            PullTrigger();
-        } else {
-            ReleaseTrigger();
-        }
+
 
         if(triggerPulled) {
             while (Time.time > timeNextShotIsReady) {           // Can shoot?

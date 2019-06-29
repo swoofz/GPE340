@@ -126,13 +126,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 574416dccf2c32a43952670e04e962a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerPulled: 0
   animationType: 2
-  damage: 8
   rightHandIKTarget: {fileID: 1545518712546742270}
   LeftHandIKTarget: {fileID: 7288798048999347566}
   bullet: {fileID: 1975319701680542518, guid: 3dd11425a66b854418058848cfd06948, type: 3}
   barrel: {fileID: 883957903168231156}
+  attackAngle: 3
+  maxRange: 10
+  damage: 8
   muzzleVelocity: 8
   shotsPerMinute: 625
   spread: 1.5

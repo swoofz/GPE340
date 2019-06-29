@@ -4,13 +4,16 @@ using UnityEngine;
 
 abstract public class WeaponAgent : MonoBehaviour {
 
-    public Weapon startWeapon;                  // Starting weapon that will be equipped on our player
     public Transform attachmentPoint;           // Place where we want our weapon to be located
 
     public Animator Animator { get; private set; }
     public Weapon equippedWeapon { get; private set; }
 
-    // 
+
+    protected virtual void Awake() {
+        Animator = GetComponent<Animator>();
+    }
+
     protected virtual void OnAnimatorIK() {
         // if dont have a weapon don't even worry about the rest of the code
         if (!equippedWeapon) return;
@@ -54,9 +57,5 @@ abstract public class WeaponAgent : MonoBehaviour {
             Destroy(equippedWeapon.gameObject);
             equippedWeapon = null;
         }
-    }
-
-    public void SetAwakeVaribles() {
-        Animator = GetComponent<Animator>();
     }
 }
