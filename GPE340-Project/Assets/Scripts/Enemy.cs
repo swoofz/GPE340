@@ -60,7 +60,7 @@ public class Enemy : WeaponAgent {
     }
 
     bool PlayerInSight() {
-        float angle = Vector3.Angle(tf.position, player.transform.position);
+        float angle = Vector3.Angle(player.transform.position - tf.position, transform.forward);
 
         if (angle < equippedWeapon.attackAngle)
             return true;

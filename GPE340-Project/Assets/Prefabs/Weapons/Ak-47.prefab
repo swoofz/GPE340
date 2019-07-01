@@ -345,7 +345,7 @@ MonoBehaviour:
   LeftHandIKTarget: {fileID: 8447669528400406268}
   bullet: {fileID: 1975319701680542518, guid: 3dd11425a66b854418058848cfd06948, type: 3}
   barrel: {fileID: 6144947716079142328}
-  attackAngle: 4
+  attackAngle: 5
   maxRange: 13
   damage: 15
   muzzleVelocity: 15

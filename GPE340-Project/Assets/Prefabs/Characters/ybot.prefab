@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 2300265294828632457}
   - component: {fileID: 5536370634423702682}
   m_Layer: 10
-  m_Name: ybot Ragdoll
+  m_Name: ybot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3384,6 +3384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3224392544499779747}
+  - component: {fileID: 8002335717488731977}
   m_Layer: 10
   m_Name: WeaponContainer
   m_TagString: Untagged
@@ -3405,3 +3406,17 @@ Transform:
   m_Father: {fileID: 2300265295457592424}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8002335717488731977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3224392544499779746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36684e09cb0ad034d80a5baf29987104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 2300265295457592422}
+  speed: 5
