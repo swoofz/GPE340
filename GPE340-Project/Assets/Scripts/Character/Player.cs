@@ -11,12 +11,9 @@ public class Player : WeaponAgent {
 
     [SerializeField, Tooltip("The max speed of the player")]
     private float speed = 4f;
-    [SerializeField, Tooltip("See the player current Health. NOTE: NOT A CHANGABLE VALUE")]
-    private float currentHealth;
 
-    private Transform tf;           // Our transform store variable
-
-    private RagdollController ragController;
+    private Transform tf;                       // Our transform store variable
+    private RagdollController ragController;    // Variable to store our Ragdoll controller
 
     private float currentSpeed;         // change in speed
     private float maxStamina = 100f;    // max stamina to be able to sprint
@@ -42,7 +39,6 @@ public class Player : WeaponAgent {
 
     // Update is called once per frame
     void Update() {
-        currentHealth = Health.health;  // Update our show current health value
         Move();
         Shoot();
         Rotate();
@@ -133,9 +129,14 @@ public class Player : WeaponAgent {
         }
     }
 
+    // Run when the player dies
     void OnDie() {
+        // Remove any weapon player might have then check if have a ragdoll controller
         Unequip();
         if(ragController)
+            // Have ragdoll controller so activate it
             ragController.TurnOnElementsIncludingChildren();
+
+        Destroy(gameObject, 2f);    // Destory after 2 seconds
     }
 }

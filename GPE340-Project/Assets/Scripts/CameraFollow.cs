@@ -12,7 +12,9 @@ public class CameraFollow : MonoBehaviour {
 
     private void LateUpdate() {
         // Create a new Vector3 and only change our x and z axis
-        Vector3 newTargetLocation = new Vector3(target.localPosition.x, 10f, target.position.z - 10f);
-        transform.localPosition = Vector3.MoveTowards(transform.localPosition, newTargetLocation, maxViewDistance);
+        if (target) {
+            Vector3 newTargetLocation = new Vector3(target.localPosition.x, 10f, target.position.z - 10f);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, newTargetLocation, maxViewDistance);
+        }
     }
 }

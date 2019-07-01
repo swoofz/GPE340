@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class RagdollController : MonoBehaviour {
 
-    private Collider Collider;
-    private Rigidbody rb;
-    private WeaponAgent Character;
+    private Collider Collider;      // Store our Collider
+    private Rigidbody rb;           // Store our Rigidbody
+    private WeaponAgent Character;  // Get our character
 
     private void Awake() {
+        // Initialize variables
         Collider = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
         Character = GetComponent<WeaponAgent>();
@@ -26,19 +27,21 @@ public class RagdollController : MonoBehaviour {
         }
     }
 
-
     public void TurnOffElementsIncludingChildren() {
         int i;
+        // Get all child rigidbody components
         Rigidbody[] childRBs = GetComponentsInChildren<Rigidbody>();
         for (i = 0; i < childRBs.Length; i++) {
-            childRBs[i].isKinematic = true;
+            childRBs[i].isKinematic = true;     // Child element can be affect by physics
         }
 
+        // Get all child Collider components
         Collider[] childColliders = GetComponentsInChildren<Collider>();
         for (i = 0; i < childColliders.Length; i++) {
-            childColliders[i].enabled = false;
+            childColliders[i].enabled = false;  // Child element collider disable
         }
 
+        // Disable character colliders and dont have physics affect it rigibody
         rb.isKinematic = false;
         Collider.enabled = true;
         Character.Animator.enabled = true;
@@ -46,16 +49,19 @@ public class RagdollController : MonoBehaviour {
 
     public void TurnOnElementsIncludingChildren() {
         int i;
+        // Get all child rigidbody components
         Rigidbody[] childRBs = GetComponentsInChildren<Rigidbody>();
         for (i = 0; i < childRBs.Length; i++) {
-            childRBs[i].isKinematic = false;
+            childRBs[i].isKinematic = false;    // Child element can't be affect by physics
         }
 
+        // Get all child Collider components
         Collider[] childColliders = GetComponentsInChildren<Collider>();
         for (i = 0; i < childColliders.Length; i++) {
-            childColliders[i].enabled = true;
+            childColliders[i].enabled = true;   // Child element collider enable
         }
 
+        // Activate character colliders and have physics affect it rigibody
         rb.isKinematic = true;
         Collider.enabled = false;
         Character.Animator.enabled = false;
