@@ -83,7 +83,9 @@ public class Enemy : WeaponAgent {
     }
 
     void OnDie() {
-        ragController.TurnOnElementsIncludingChildren();
+        Unequip();
+        if(ragController)
+            ragController.TurnOnElementsIncludingChildren();
         Destroy(gameObject, 5f);
     }
 }

@@ -9,7 +9,6 @@ abstract public class WeaponAgent : MonoBehaviour {
     public Animator Animator { get; private set; }
     public Weapon equippedWeapon { get; private set; }
 
-
     protected virtual void Awake() {
         Animator = GetComponent<Animator>();
     }

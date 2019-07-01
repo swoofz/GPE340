@@ -27,4 +27,11 @@ public class CameraUI : MonoBehaviour {
         // Change Stamina Text
         stamina.text = string.Format("Stamina: {0}%", Mathf.RoundToInt(player.StaminaPercentage * 100f));
     }
+
+    public void WaveTracker(Text spawnerText) {
+        // Kept track of what wave you are on
+        EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
+        if(spawner.MaxNumberOfWaves > spawner.currentWave)
+            spawnerText.text = "Wave: " + ( spawner.currentWave + 1 ) + "/" + spawner.MaxNumberOfWaves;
+    }
 }

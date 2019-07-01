@@ -15,6 +15,18 @@ public class RagdollController : MonoBehaviour {
     }
 
 
+    private void Update() {
+        // Toggle Ragdoll
+        if(Input.GetKeyDown(KeyCode.Alpha1)) {
+            TurnOffElementsIncludingChildren();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha2)) {
+            TurnOnElementsIncludingChildren();
+        }
+    }
+
+
     public void TurnOffElementsIncludingChildren() {
         int i;
         Rigidbody[] childRBs = GetComponentsInChildren<Rigidbody>();
