@@ -134,7 +134,7 @@ MonoBehaviour:
   attackAngle: 4
   maxRange: 10
   damage: 8
-  muzzleVelocity: 8
+  muzzleVelocity: 35
   shotsPerMinute: 625
   spread: 1.5
 --- !u!1 &366435277784322447
