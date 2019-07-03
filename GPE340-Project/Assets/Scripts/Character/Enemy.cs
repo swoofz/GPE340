@@ -7,7 +7,11 @@ public class Enemy : WeaponAgent {
 
     public Health Health { get; private set; }
 
-    public Weapon[] defaultWeapons;                 // Array of weapons this Enemy can use
+    public Weapon[] defaultWeapons;                     // Array of weapons this Enemy can use
+    [Header("Item Drop Settings")]
+    [SerializeField, Range(0,1f)]
+    private double itemDropChance = 1;  // Chance for an item to drop
+    public WeightedObject[] itemDrops;  // Array of items that this enmy can drop
 
     private Player player;                      // Access to the only player in the game
     private NavMeshAgent navMeshAgent;          // Access to control Enemy action in using a NavMesh
@@ -32,6 +36,9 @@ public class Enemy : WeaponAgent {
 
     // Update is called once per frame
     void Update() {
+        if (GameManager.Paused)
+            return;
+
         FindPlayer();
 
         if (player) {
@@ -59,7 +66,7 @@ public class Enemy : WeaponAgent {
 
     void FindPlayer() {
         // Find the only player component in the game
-        player = FindObjectOfType<Player>();
+        player = GameManager.Instance.playerPrefab;
         
         // No Player; Stop animations
         if (!player) {
@@ -102,8 +109,14 @@ public class Enemy : WeaponAgent {
         // When die remove weapon, make enemy into ragdoll if has ragdoll controller and destory
         //      gameobject after some time
         Unequip();
+        DropItem();
         if(ragController)
             ragController.TurnOnElementsIncludingChildren();
         Destroy(gameObject, 5f);
+    }
+
+    void DropItem() {
+        if(Random.Range(0f, 1f) < itemDropChance)
+            Instantiate(WeightedObject.Select(itemDrops), tf.position + Vector3.up, Quaternion.identity);
     }
 }

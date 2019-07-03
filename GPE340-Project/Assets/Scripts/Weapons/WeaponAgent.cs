@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 abstract public class WeaponAgent : MonoBehaviour {
-
+    [Header("Weapon Setttings")]
     public Transform attachmentPoint;           // Place where we want our weapon to be located
 
     public Animator Animator { get; private set; }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CameraUI : MonoBehaviour {
 
-    public Player player;   // Get our player
+    private Player player;   // Get our player
 
     [SerializeField, Tooltip("Update our UI Text to match Player stats.")]
     private UnityEvent UIUpdate = null;
@@ -14,8 +14,11 @@ public class CameraUI : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        // Invoke all events
-        UIUpdate.Invoke();
+        player = GameManager.Instance.playerPrefab;
+
+        if (player)
+            // Invoke all events
+            UIUpdate.Invoke();
     }
 
     public void HealthText(Text health) {

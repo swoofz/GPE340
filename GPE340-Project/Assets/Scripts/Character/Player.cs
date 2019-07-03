@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
 public class Player : WeaponAgent {
 
     public Health Health { get; private set; }
+    public RagdollController ragController { get; private set; }
     public float StaminaPercentage { get { return stamina / maxStamina; } }
 
     public Weapon startWeapon;      // Starting weapon that will be equipped on our player
@@ -13,7 +15,7 @@ public class Player : WeaponAgent {
     private float speed = 4f;
 
     private Transform tf;                       // Our transform store variable
-    private RagdollController ragController;    // Variable to store our Ragdoll controller
+    //private RagdollController ragController;    // Variable to store our Ragdoll controller
 
     private float currentSpeed;         // change in speed
     private float maxStamina = 100f;    // max stamina to be able to sprint
@@ -39,6 +41,9 @@ public class Player : WeaponAgent {
 
     // Update is called once per frame
     void Update() {
+        if (GameManager.Paused)
+            return;
+
         Move();
         Shoot();
         Rotate();
@@ -137,6 +142,6 @@ public class Player : WeaponAgent {
             // Have ragdoll controller so activate it
             ragController.TurnOnElementsIncludingChildren();
 
-        Destroy(gameObject, 2f);    // Destory after 2 seconds
+        Destroy(gameObject, GameManager.Instance.playerRespawnDelay + 0.1f);    // Destory after 2 seconds
     }
 }

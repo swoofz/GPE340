@@ -43,11 +43,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2300265295457592422}
   - component: {fileID: 2300265295450622476}
-  - component: {fileID: 2300265294828632463}
-  - component: {fileID: 2300265294828632452}
   - component: {fileID: 2300265294828632458}
   - component: {fileID: 2300265294828632459}
   - component: {fileID: 2300265294828632457}
+  - component: {fileID: 2300265294828632463}
+  - component: {fileID: 2300265294828632452}
   - component: {fileID: 5536370634423702682}
   m_Layer: 10
   m_Name: ybot
@@ -92,75 +92,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2300265294828632463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2300265295458023494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef16fcc7f96d5b045a57c14c90d3e484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attachmentPoint: {fileID: 3224392544499779747}
-  player: {fileID: 0}
-  defaultWeapons:
-  - {fileID: 2540641487418198543, guid: 32e45544427b39c458ed33c88c56b98a, type: 3}
-  - {fileID: 7387579993231529069, guid: a171d9a796b9c2f47b4d3f2350821cf8, type: 3}
-  - {fileID: 2759238974328120463, guid: f15fae98664146d4fb26a65fbfdb1dd6, type: 3}
-  - {fileID: 3118581210434452310, guid: aa7ee96a33f92bc4e95c6b79ecd41260, type: 3}
---- !u!114 &2300265294828632452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2300265295458023494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caa1df27e92c95e4184df2ccfbc5a9f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  onHeal:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onDamage:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onDie:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2300265294828632463}
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2300265294828632457}
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!136 &2300265294828632458
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -213,6 +144,80 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2300265294828632463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2300265295458023494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef16fcc7f96d5b045a57c14c90d3e484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachmentPoint: {fileID: 3224392544499779747}
+  defaultWeapons:
+  - {fileID: 2540641487418198543, guid: 32e45544427b39c458ed33c88c56b98a, type: 3}
+  - {fileID: 7387579993231529069, guid: a171d9a796b9c2f47b4d3f2350821cf8, type: 3}
+  - {fileID: 2759238974328120463, guid: f15fae98664146d4fb26a65fbfdb1dd6, type: 3}
+  - {fileID: 3118581210434452310, guid: aa7ee96a33f92bc4e95c6b79ecd41260, type: 3}
+  itemDropChance: 0.3499999940395355
+  itemDrops:
+  - value: {fileID: 4216416544367975203, guid: b35552af8bb58894babca3f546a88a9d, type: 3}
+    chance: 0.2
+  - value: {fileID: 7921707766302169551, guid: 0e5a2c32d2474a345b4c3a4b64c9329a, type: 3}
+    chance: 0.1
+--- !u!114 &2300265294828632452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2300265295458023494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa1df27e92c95e4184df2ccfbc5a9f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  onHeal:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2300265294828632463}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2300265294828632457}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &5536370634423702682
 MonoBehaviour:
   m_ObjectHideFlags: 0
