@@ -157,6 +157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentPoint: {fileID: 3224392544499779747}
+  EnemyHealthBarPrefab: {fileID: 4190900672545147414, guid: bcf6e852bd258b54e9cb7de852d0e667,
+    type: 3}
   defaultWeapons:
   - {fileID: 2540641487418198543, guid: 32e45544427b39c458ed33c88c56b98a, type: 3}
   - {fileID: 7387579993231529069, guid: a171d9a796b9c2f47b4d3f2350821cf8, type: 3}

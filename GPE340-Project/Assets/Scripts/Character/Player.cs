@@ -30,6 +30,7 @@ public class Player : WeaponAgent {
         tf = GetComponent<Transform>();
         Health = GetComponent<Health>();
         ragController = GetComponent<RagdollController>();
+        UIManager.Instance.RegisterPlayer(this);
         stamina = maxStamina;
         EquipWeapon(startWeapon);
     }

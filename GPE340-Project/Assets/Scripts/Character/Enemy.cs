@@ -26,6 +26,7 @@ public class Enemy : WeaponAgent {
         Health = GetComponent<Health>();
         ragController = GetComponent<RagdollController>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        UIManager.Instance.RegisterEnemy(this);
         EquipWeapon(defaultWeapons[Random.Range(0, defaultWeapons.Length)]);
     }
 

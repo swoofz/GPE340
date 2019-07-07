@@ -1,11 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
     public static GameManager Instance { get; private set; }
     public float Lives { get { return lives; } }
+
+    [SerializeField] private UnityEvent onPause = null;
+    [SerializeField] private UnityEvent onResume = null;
+    [SerializeField] private UnityEvent onLose = null;
+    [SerializeField] private string mainMenuSceneName = "";
 
     [Header("Level Settings")]
     public Player playerPrefab;
@@ -65,10 +72,16 @@ public class GameManager : MonoBehaviour {
     public static void Pause() {
         Paused = true;
         Time.timeScale = 0;
+        Instance.onPause.Invoke();
     }
 
     public static void UnPause() {
         Paused = false;
         Time.timeScale = 1;
+        Instance.onResume.Invoke();
+    }
+
+    public static void Quit() {
+        SceneManager.LoadScene(Instance.mainMenuSceneName);
     }
 }
