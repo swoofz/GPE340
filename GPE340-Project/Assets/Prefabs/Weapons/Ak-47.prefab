@@ -341,6 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationType: 1
+  icon: {fileID: 21300044, guid: 6674e8c43c63e4f4184cbd009379498d, type: 3}
   rightHandIKTarget: {fileID: 3935494320515486785}
   LeftHandIKTarget: {fileID: 8447669528400406268}
   bullet: {fileID: 1975319701680542518, guid: 3dd11425a66b854418058848cfd06948, type: 3}

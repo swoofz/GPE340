@@ -23,12 +23,12 @@ public class CameraUI : MonoBehaviour {
 
     public void HealthText(Text health) {
         // Change health text
-        health.text = string.Format("Health: {0}%", Mathf.RoundToInt(player.Health.HealthPercentage * 100f));
+        health.text = string.Format(" Health: {0}%", Mathf.RoundToInt(player.Health.HealthPercentage * 100f));
     } 
 
     public void StaminaText(Text stamina) {
         // Change Stamina Text
-        stamina.text = string.Format("Stamina: {0}%", Mathf.RoundToInt(player.StaminaPercentage * 100f));
+        stamina.text = string.Format(" Stamina: {0}%", Mathf.RoundToInt(player.StaminaPercentage * 100f));
     }
 
     public void WaveTracker(Text spawnerText) {

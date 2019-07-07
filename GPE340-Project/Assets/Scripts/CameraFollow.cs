@@ -10,11 +10,15 @@ public class CameraFollow : MonoBehaviour {
 
 
     private void LateUpdate() {
-        target = GameManager.Instance.playerPrefab.transform;
+        // Get Player if there is a player
+        Player player = GameManager.Instance.playerPrefab;
+
+        if (player)
+            target = player.transform;
         
         // Create a new Vector3 and only change our x and z axis
         if (target) {
-            Vector3 newTargetLocation = new Vector3(target.localPosition.x, 25f, target.position.z);
+            Vector3 newTargetLocation = new Vector3(target.localPosition.x, 20f, target.position.z);
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, newTargetLocation, maxViewDistance);
         }
     }

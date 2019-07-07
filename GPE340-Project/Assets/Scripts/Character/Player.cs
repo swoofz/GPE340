@@ -15,7 +15,6 @@ public class Player : WeaponAgent {
     private float speed = 4f;
 
     private Transform tf;                       // Our transform store variable
-    //private RagdollController ragController;    // Variable to store our Ragdoll controller
 
     private float currentSpeed;         // change in speed
     private float maxStamina = 100f;    // max stamina to be able to sprint

@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationType: 2
+  icon: {fileID: 21300024, guid: 6674e8c43c63e4f4184cbd009379498d, type: 3}
   rightHandIKTarget: {fileID: 4548935412592468081}
   LeftHandIKTarget: {fileID: 5121944858629784713}
   bullet: {fileID: 1975319701680542518, guid: 3dd11425a66b854418058848cfd06948, type: 3}

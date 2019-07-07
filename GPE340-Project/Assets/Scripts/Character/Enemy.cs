@@ -42,9 +42,13 @@ public class Enemy : WeaponAgent {
 
         FindPlayer();
 
+        
         if (player) {
             Movement();
             Shoot();
+
+            if (player.Health.health <= 0)
+                StopMoving();
         }
     }
 
@@ -63,6 +67,11 @@ public class Enemy : WeaponAgent {
         // Update animations
         Animator.SetFloat("Horizontal", input.x);
         Animator.SetFloat("Vertical", input.z);
+    }
+
+    void StopMoving() {
+        // Stop Moving by setting Destination as our position
+        navMeshAgent.SetDestination(tf.transform.position);
     }
 
     void FindPlayer() {
@@ -101,9 +110,12 @@ public class Enemy : WeaponAgent {
     }
 
     void Shoot() {
-        // If player is in sight and close enough then shoot otherwise, dont shoot
-        if (PlayerInSight() && PlayerIsCloseEnough()) equippedWeapon.PullTrigger();
-        else equippedWeapon.ReleaseTrigger();
+        if (player.Health.health > 0) {
+            // If player is in sight and close enough then shoot otherwise, dont shoot
+            if (PlayerInSight() && PlayerIsCloseEnough()) equippedWeapon.PullTrigger();
+        } else {
+            equippedWeapon.ReleaseTrigger();
+        }
     }
 
     void OnDie() {

@@ -6,7 +6,6 @@ using UnityEngine;
 public class HealthBar : MonoBehaviour {
 
     public Text text = null;
-    //public string textFormat = "";
     public Image fill = null;
     public bool destoryWithTarget = false;
     public bool trackTarget = false;

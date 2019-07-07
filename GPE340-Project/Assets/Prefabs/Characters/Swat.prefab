@@ -1404,10 +1404,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentPoint: {fileID: 4831618711732325617}
-  startWeapon: {fileID: 7387579993231529069, guid: a171d9a796b9c2f47b4d3f2350821cf8,
+  startWeapon: {fileID: 2759238974328120463, guid: f15fae98664146d4fb26a65fbfdb1dd6,
     type: 3}
   speed: 1.5
-  currentHealth: 0
 --- !u!114 &4831618713310220195
 MonoBehaviour:
   m_ObjectHideFlags: 0

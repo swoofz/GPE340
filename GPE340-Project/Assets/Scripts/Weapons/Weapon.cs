@@ -6,6 +6,7 @@ abstract public class Weapon : MonoBehaviour {
 
     public bool triggerPulled { get; set; }
     public WeaonAnimationType AnimationType { get { return animationType; } }
+    public Sprite Icon { get { return icon; } }
 
     // Controler Animation type by what type of weapon we have
     public enum WeaonAnimationType {
@@ -16,6 +17,7 @@ abstract public class Weapon : MonoBehaviour {
 
     [SerializeField, Header("Weapon Settings")]
     private WeaonAnimationType animationType = WeaonAnimationType.None;
+    [SerializeField] private Sprite icon = null;
 
     [Header("IK Settings")]
     public Transform rightHandIKTarget;

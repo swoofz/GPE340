@@ -23,13 +23,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private int lives = 3;
 
     private void Awake() {
-        if (!Instance) {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        } else {
-            Destroy(gameObject);
-        }
-            
+        Instance = this;
     }
 
     // Start is called before the first frame update
@@ -65,7 +59,7 @@ public class GameManager : MonoBehaviour {
             Invoke("SpawnPlayer", playerRespawnDelay);
             lives--;
         } else {
-            //  GameOver
+            onLose.Invoke();
         }
     }
 
@@ -82,6 +76,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public static void Quit() {
+        Paused = false;
+        Time.timeScale = 1;
         SceneManager.LoadScene(Instance.mainMenuSceneName);
     }
 }
