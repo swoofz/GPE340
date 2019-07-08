@@ -157,8 +157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachmentPoint: {fileID: 3224392544499779747}
-  EnemyHealthBarPrefab: {fileID: 4190900672545147414, guid: bcf6e852bd258b54e9cb7de852d0e667,
-    type: 3}
   defaultWeapons:
   - {fileID: 2540641487418198543, guid: 32e45544427b39c458ed33c88c56b98a, type: 3}
   - {fileID: 7387579993231529069, guid: a171d9a796b9c2f47b4d3f2350821cf8, type: 3}
@@ -169,6 +167,8 @@ MonoBehaviour:
   - value: {fileID: 4216416544367975203, guid: b35552af8bb58894babca3f546a88a9d, type: 3}
     chance: 0.2
   - value: {fileID: 7921707766302169551, guid: 0e5a2c32d2474a345b4c3a4b64c9329a, type: 3}
+    chance: 0.1
+  - value: {fileID: 3883205893434842391, guid: 9235e0a0a24acd24a866ed77b2d161c6, type: 3}
     chance: 0.1
 --- !u!114 &2300265294828632452
 MonoBehaviour:

@@ -6,6 +6,7 @@ using UnityEditor;
 [CustomPropertyDrawer(typeof(WeightedObject))]
 public class WeightedObjectDrawer : PropertyDrawer {
 
+    // Editor Change code - How our Weighted Object class looks in the inspector
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
         EditorGUI.BeginProperty(position, label, property);
         position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);

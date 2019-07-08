@@ -41,6 +41,7 @@ public class Player : WeaponAgent {
 
     // Update is called once per frame
     void Update() {
+        // if game is pause don't control player
         if (GameManager.Paused)
             return;
 

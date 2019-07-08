@@ -42,7 +42,7 @@ public class Enemy : WeaponAgent {
 
         FindPlayer();
 
-        
+        // If player move unless player is dead
         if (player) {
             Movement();
             Shoot();
@@ -129,6 +129,7 @@ public class Enemy : WeaponAgent {
     }
 
     void DropItem() {
+        // Drop item if range is low then our chance rate
         if(Random.Range(0f, 1f) < itemDropChance)
             Instantiate(WeightedObject.Select(itemDrops), tf.position + Vector3.up, Quaternion.identity);
     }

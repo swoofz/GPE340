@@ -20,15 +20,18 @@ public class WeightedObject {
         double[] cdfArray = new double[choices.Length];
         double weight = 0;
 
+        // CDF - Cumulative Density Function
         for (int i = 0; i < choices.Length; i++) {
             weight += choices[i].chance;
             cdfArray[i] = weight;
         }
 
+        // Find a random index between 0 and last weight
         int selectedIndex = System.Array.BinarySearch(cdfArray, rnd.NextDouble() * cdfArray[cdfArray.Length - 1]);
         if (selectedIndex < 0)
             selectedIndex = ~selectedIndex;
 
+        // Return item
         return choices[selectedIndex].value;
     }
 

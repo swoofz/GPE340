@@ -5,8 +5,13 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour {
 
     public Enemy[] enemyUnits;      // Enemies that will get spawned
+
+    // Getter Variables for other scripts
     public int currentWave { get; private set; }
     public int MaxNumberOfWaves { get { return waves.Length; } }
+    public int LastMaxEnemies { get { return waves[waves.Length-1]; } }
+    public int currentActiveEnemies { get; private set; }                   // Tracker of the active enemies in the scene
+    public int spawnedEnemyCount { get; private set; }                      // Tracker for how many enemies spawn
 
     [Header("Wave Settings")]
     [SerializeField] private int maxActiveEnemies = 5;  // Max number of enemies that can be in the scene at once
@@ -17,8 +22,6 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] private int[] waves = null;
 
     private List<Transform> spawnPoints;    // Location in with enemies spawn
-    private int currentActiveEnemies = 0;   // Tracker of the active enemies in the scene
-    private int spawnedEnemyCount = 0;      // Tracker for how many enemies spawn
     private float nextWaveTime = 0;         // Timer variable
 
     private void Awake() {

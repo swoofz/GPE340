@@ -8,12 +8,14 @@ public class UIManager : MonoBehaviour {
 
     static public UIManager Instance { get; private set; }
 
-    [SerializeField] private HealthBar playerHealtthBar = null;
+    // UI element that get stored in variable to change
+    [SerializeField] private HealthBar playerHealtthBar = null; 
     [SerializeField] private StaminaBar playerStaminaBar = null;
     [SerializeField] private Transform enemyHealthBarContainer = null;
     [SerializeField] private HealthBar enemyHealthBarPrefab = null;
     [SerializeField] private GameObject pauseMenu = null;
     [SerializeField] private GameObject loseMenu = null;
+    [SerializeField] private GameObject winMenu = null;
     [SerializeField] private Image weaponDisplay = null;
     [SerializeField] private Text lifeText = null;
 
@@ -57,6 +59,10 @@ public class UIManager : MonoBehaviour {
         loseMenu.SetActive(true);
     }
 
+    public void ShowWinMenu() {
+        winMenu.SetActive(true);
+    }
+
     public void ButtonResume() {
         GameManager.UnPause();
     }
@@ -66,6 +72,17 @@ public class UIManager : MonoBehaviour {
     }
 
     public void ButtonContinue() {
+        winMenu.SetActive(false);
+
+        // Check if have another scene after this one
+        if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        else
+            GameManager.Quit();
+    }
+
+    public void ButtonRestart() {
+        // Restart the scene
         loseMenu.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
