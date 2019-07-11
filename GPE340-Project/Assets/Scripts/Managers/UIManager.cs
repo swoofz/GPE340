@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private Transform enemyHealthBarContainer = null;
     [SerializeField] private HealthBar enemyHealthBarPrefab = null;
     [SerializeField] private GameObject pauseMenu = null;
+    [SerializeField] private GameObject settingsMenu = null;
     [SerializeField] private GameObject loseMenu = null;
     [SerializeField] private GameObject winMenu = null;
     [SerializeField] private Image weaponDisplay = null;
@@ -53,6 +54,14 @@ public class UIManager : MonoBehaviour {
 
     public void HidePauseMenu() {
         pauseMenu.SetActive(false);
+    }
+
+    public void ShowSettingsMenu() {
+        settingsMenu.SetActive(true);
+    }
+
+    public void HideSettingsMenu() {
+        settingsMenu.SetActive(false);
     }
 
     public void ShowLoseMenu() {
