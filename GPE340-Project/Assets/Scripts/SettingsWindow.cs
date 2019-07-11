@@ -1,9 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Collections;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine;
 
 public class SettingsWindow : MonoBehaviour {
+
+    [Header("Audio Settings")]
+    [SerializeField, Tooltip("The master audio mixer")]
+    private AudioMixer audioMixer = null;
+    [SerializeField, Tooltip("The slider value vs decibel volume curve")]
+    private AnimationCurve volumeVsDecibels = null;
 
     [Header("Volume Settings")]
     [SerializeField] private Slider masterVolumeSlider = null;
@@ -32,7 +39,6 @@ public class SettingsWindow : MonoBehaviour {
         for (int i = 0; i < QualitySettings.names.Length; i++)
             qualities.Add(QualitySettings.names[i]);
         qualityDropdown.AddOptions(qualities);
-        
     }
 
     private void OnEnable() {
@@ -44,11 +50,20 @@ public class SettingsWindow : MonoBehaviour {
         applyButton.interactable = false;
     }
 
+    public void SetVolume() {
+        audioMixer.SetFloat("Master Volume", volumeVsDecibels.Evaluate(PlayerPrefs.GetFloat("Master Volume", masterVolumeSlider.maxValue)));
+        audioMixer.SetFloat("Sound Volume", volumeVsDecibels.Evaluate(PlayerPrefs.GetFloat("Sound Volume", soundVolumeSlider.maxValue)));
+        audioMixer.SetFloat("Music Volume", volumeVsDecibels.Evaluate(PlayerPrefs.GetFloat("Music Volume", musicVolumeSlider.maxValue)));
+    }
+
     public void SaveSettings() {
         PlayerPrefs.SetFloat("Master Volume", masterVolumeSlider.value);
         PlayerPrefs.SetFloat("Sound Volume", soundVolumeSlider.value);
         PlayerPrefs.SetFloat("Music Volume", musicVolumeSlider.value);
         Screen.fullScreen = fullscreenToggle.isOn;
         QualitySettings.SetQualityLevel(qualityDropdown.value);
+
+        // Update Volume
+        SetVolume();
     }
 }

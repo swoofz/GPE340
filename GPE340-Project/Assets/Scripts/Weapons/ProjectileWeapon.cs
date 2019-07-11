@@ -10,16 +10,19 @@ public class ProjectileWeapon : Weapon {
     [Range(0, 100)]
     public float spread = 5f;               // bullet spread
 
+    [Header("Sound Settings")]
+    [SerializeField] private AudioSource audioSource = null;
+    [SerializeField] private AudioClip firingSound = null;
+
     private float timeNextShotIsReady;      // time to be able to take a shot again
 
     private void Awake() {
         // Initial Variables
         timeNextShotIsReady = Time.time;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate() {
-
-
         if(triggerPulled) {
             while (Time.time > timeNextShotIsReady) {           // Can shoot?
                 Shoot();                                        // Then shoot
@@ -44,6 +47,9 @@ public class ProjectileWeapon : Weapon {
         projectile.rigidBody.AddRelativeForce(Vector3.forward * muzzleVelocity, ForceMode.VelocityChange);
         projectile.gameObject.layer = gameObject.layer;
         projectile.transform.SetParent(storage.transform);
+
+        if (audioSource)
+            audioSource.PlayOneShot(firingSound);
     }
 
     public override void PullTrigger() {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour {
@@ -8,6 +9,10 @@ public class MainMenuManager : MonoBehaviour {
     [SerializeField] private string firstLevelSceneName = "";       // Name of the first scene
     [SerializeField] private GameObject mainMenuPanel = null;
     [SerializeField] private GameObject settingsPanel = null;
+
+    private void Start() {
+        settingsPanel.GetComponent<SettingsWindow>().SetVolume();
+    }
 
     public void ButtonStart() {
         // Load first scene
