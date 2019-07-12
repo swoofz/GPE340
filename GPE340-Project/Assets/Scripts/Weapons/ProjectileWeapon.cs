@@ -10,6 +10,8 @@ public class ProjectileWeapon : Weapon {
     [Range(0, 100)]
     public float spread = 5f;               // bullet spread
 
+    [SerializeField] private ParticleSystem muzzleFlashParticle = null;
+
     [Header("Sound Settings")]
     [SerializeField] private AudioSource audioSource = null;
     [SerializeField] private AudioClip firingSound = null;
@@ -19,7 +21,6 @@ public class ProjectileWeapon : Weapon {
     private void Awake() {
         // Initial Variables
         timeNextShotIsReady = Time.time;
-        audioSource = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate() {
@@ -48,8 +49,13 @@ public class ProjectileWeapon : Weapon {
         projectile.gameObject.layer = gameObject.layer;
         projectile.transform.SetParent(storage.transform);
 
+        // Player gun shot noise
         if (audioSource)
             audioSource.PlayOneShot(firingSound);
+
+        // Emit muzzle flash
+        if (muzzleFlashParticle)
+            muzzleFlashParticle.Emit(1);
     }
 
     public override void PullTrigger() {

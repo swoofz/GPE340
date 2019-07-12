@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 5536370634423702682}
   - component: {fileID: 5455153461746711824}
   - component: {fileID: 5232643963192851896}
+  - component: {fileID: 8705996906328998153}
   m_Layer: 10
   m_Name: ybot
   m_TagString: Untagged
@@ -247,7 +248,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -344,7 +345,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 5455153461746711824}
-  footstepClip: {fileID: 0}
+  footstepClip: {fileID: 8300000, guid: a8111f5bf3cf68f4e8c2661302bdd23a, type: 3}
+--- !u!114 &8705996906328998153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2300265295458023494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f3caeab53006aa46bf67ee9acf5e2c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitEffect: {fileID: 7388770871054050846, guid: 4c0ca69f9a5345143a753d9abcbc0299,
+    type: 3}
 --- !u!1 &2300265295458023496
 GameObject:
   m_ObjectHideFlags: 0

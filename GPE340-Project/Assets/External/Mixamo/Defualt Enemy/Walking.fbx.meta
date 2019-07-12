@@ -203,8 +203,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.0234375
-        functionName: AnimationoEventFootstep
+      - time: 0.02734375
+        functionName: AnimationEventFootstep
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

@@ -578,11 +578,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243360903760540418, guid: 30c1f2b681988b5458366b2904fb6476,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 9cc234bbd0b1815469f0e136c1aa520e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9b12cdfb8177e5c4680c11cab31129ef, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1559,6 +1559,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 512337255408715662, guid: 1563bcc8410e02045a2609fab336e904,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1563714921}
+    - target: {fileID: 512337255408715662, guid: 1563bcc8410e02045a2609fab336e904,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowMainMenePanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1563bcc8410e02045a2609fab336e904, type: 3}

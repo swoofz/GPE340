@@ -19,9 +19,12 @@ public class Health : MonoBehaviour {
     [SerializeField, Tooltip("Raised every time the object is healed.")]
     private UnityEvent onDie = null;
 
+    private AudioSource audioSource = null;
+
     private void Awake() {
         // Initailize Variables
         health = maxHealth;
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Damage(float damage) {
@@ -43,5 +46,10 @@ public class Health : MonoBehaviour {
         heal = Mathf.Max(heal, 0f);
         health = Mathf.Clamp(health + heal, 0f, maxHealth);
         onHeal.Invoke();
+    }
+
+    public void PlayAudioClip(AudioClip clip) {
+        if(audioSource)
+            audioSource.PlayOneShot(clip);
     }
 }
