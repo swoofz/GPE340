@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 341725866915380369}
   - component: {fileID: 341725866915380368}
   m_Layer: 0
-  m_Name: Heal Effect
+  m_Name: Heal Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,6 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cec6b31d82b18c4d9a2bc975239e66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 2
+  lifespan: 0
   rotationSpeed: 5
   heal: 10

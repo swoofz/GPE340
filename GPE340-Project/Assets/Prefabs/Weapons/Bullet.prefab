@@ -218,6 +218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifespan: 1.2
+  effectStorage: {fileID: 9123428178042193316, guid: 663e3cdf0937b1445b2c56d3d78996b4,
+    type: 3}
   defaultHitEffect: {fileID: 3173548047398940004, guid: 919e769c404a8d4448eb71273fa7e9b6,
     type: 3}
   hitEffectLifespan: 1

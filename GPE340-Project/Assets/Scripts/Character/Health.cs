@@ -49,6 +49,7 @@ public class Health : MonoBehaviour {
     }
 
     public void PlayAudioClip(AudioClip clip) {
+        // Play an audio clip
         if(audioSource)
             audioSource.PlayOneShot(clip);
     }

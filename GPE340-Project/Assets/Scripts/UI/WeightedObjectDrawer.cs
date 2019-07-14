@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿/*  Editor Code
+ *  
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+
 
 [CustomPropertyDrawer(typeof(WeightedObject))]
 public class WeightedObjectDrawer : PropertyDrawer {
@@ -24,3 +27,4 @@ public class WeightedObjectDrawer : PropertyDrawer {
     }
 
 }
+*/

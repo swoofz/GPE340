@@ -9,6 +9,7 @@ public class Footstep : MonoBehaviour {
     [SerializeField, Tooltip("The footstep sound")]
     private AudioClip footstepClip = null;
 
+    // Play footsteps audio on an animation event
     private void AnimationEventFootstep() {
         audioSource.PlayOneShot(footstepClip);
     }

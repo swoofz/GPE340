@@ -42,6 +42,7 @@ public class SettingsWindow : MonoBehaviour {
     }
 
     private void OnEnable() {
+        // When enable this gameobject set all setting to our saved settings
         masterVolumeSlider.value = PlayerPrefs.GetFloat("Master Volume", masterVolumeSlider.maxValue);
         soundVolumeSlider.value = PlayerPrefs.GetFloat("Sound Volume", soundVolumeSlider.maxValue);
         musicVolumeSlider.value = PlayerPrefs.GetFloat("Music Volume", musicVolumeSlider.maxValue);
@@ -50,12 +51,14 @@ public class SettingsWindow : MonoBehaviour {
         applyButton.interactable = false;
     }
 
+    // Set the Game Volumes
     public void SetVolume() {
         audioMixer.SetFloat("Master Volume", volumeVsDecibels.Evaluate(PlayerPrefs.GetFloat("Master Volume", masterVolumeSlider.maxValue)));
         audioMixer.SetFloat("Sound Volume", volumeVsDecibels.Evaluate(PlayerPrefs.GetFloat("Sound Volume", soundVolumeSlider.maxValue)));
         audioMixer.SetFloat("Music Volume", volumeVsDecibels.Evaluate(PlayerPrefs.GetFloat("Music Volume", musicVolumeSlider.maxValue)));
     }
 
+    // Save all settings
     public void SaveSettings() {
         PlayerPrefs.SetFloat("Master Volume", masterVolumeSlider.value);
         PlayerPrefs.SetFloat("Sound Volume", soundVolumeSlider.value);
